@@ -9,7 +9,7 @@ function ViewDetail(){
 fetchx()
   },[])
   async function fetchx(){
-    let res=await fetch(`http://localhost:3003/public/v2/users/${id}`)
+    let res=await fetch(`http://localhost:4003/public/v2/users/${id}`)
     let json=await res.json()
     console.log(json)
     setData(json)

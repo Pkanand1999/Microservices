@@ -14,7 +14,7 @@ function EditPage(){
 fetchx()
   },[])
   async function fetchx(){
-    let res=await fetch(`http://localhost:4002/public/v2/users/update`)
+    let res=await fetch(`http://localhost:3003/public/v2/users/${id}`)
     let json=await res.json()
     console.log(json)
     setData(json)
@@ -28,7 +28,7 @@ fetchx()
         name:name,
         email:email
     }
-    let res=fetch(`http://localhost:3003/public/v2/users/${id}`,{
+    let res=fetch(`http://localhost:4003/public/v2/users/`,{
         method: 'PATCH',
         headers:{"Content-Type": "application/json"},
         body: JSON.stringify(newUser)

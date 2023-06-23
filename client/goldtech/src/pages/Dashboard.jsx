@@ -10,7 +10,6 @@ import {
     TableContainer,
     Box,
     Button,
-    Modal,
   } from '@chakra-ui/react'
   import {Link} from 'react-router-dom'
 
