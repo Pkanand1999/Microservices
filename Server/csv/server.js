@@ -1,5 +1,5 @@
 const express = require("express");
-const PORT = process.env.PORT || 3002;
+const PORT = 3003;
 const fs = require("fs");
 const dotenv = require("dotenv");
 const connect = require("./connect");

@@ -6,8 +6,9 @@ const { createProxyMiddleware } = require("http-proxy-middleware");
 const app = express();
 
 const routes = {
-  "/get": "http://localhost:3001",
-  "/update": "http://localhost:3002",
+  "/users/public/v2/get": "http://localhost:3001",
+  "/public/v2/users/update": "http://localhost:3002",
+  "/download": "http://localhost:3003",
 };
 
 for (route in routes) {
