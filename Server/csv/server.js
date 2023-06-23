@@ -2,7 +2,7 @@ const express = require("express");
 const PORT = 3003;
 const fs = require("fs");
 const dotenv = require("dotenv");
-const connect = require("./connect");
+const Database = require("./connect");
 const Users = require("./Model/userSchema");
 const { createObjectCsvWriter } = require("csv-writer");
 const cors = require("cors");
@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
-connect();
+Database();
 
 app.get("/download", async (req, res) => {
   try {
