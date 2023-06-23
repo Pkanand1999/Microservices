@@ -30,7 +30,7 @@ app.patch('/public/v2/users/update', async (req, res) => {
 
 
 // port listining
-const port=3002;
+const port=4002;
 Database();
 app.listen(port,()=>{
     console.log(`listening on port  ${port}`);

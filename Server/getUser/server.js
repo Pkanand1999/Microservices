@@ -36,7 +36,7 @@ app.get('/users/public/v2/get', async (req, res) => {
 
 
 // port listining
-const port=3001;
+const port=4001;
 Database();
 app.listen(port,()=>{
     console.log(`listening on port  ${port}`);
