@@ -13,9 +13,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended:true }));
 app.use(morgan("dev"));
+app.use(express.static("build"));
 
-
-app.get('/users/public/v2/get', async (req, res) => {
+app.get('/api/users/public/v2/get', async (req, res) => {
     try {
         const{title,rating,q,page,limit}=req.query;
         const filters = {}
@@ -33,7 +33,9 @@ app.get('/users/public/v2/get', async (req, res) => {
         })
     }
 })
-
+app.get('*/',(req, res) =>{
+    res.sendFile(__dirname + '/build/index.html')
+})
 
 // port listining
 const port=4001;

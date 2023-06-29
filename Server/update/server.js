@@ -13,12 +13,15 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended:true }));
 app.use(morgan("dev"));
+app.use(express.static("build"));
 
-
-app.patch('/public/v2/users/update', async (req, res) => {
+app.patch('/api/public/v2/users/update', async (req, res) => {
     try {
-        const { _id } = req.body;
-        const data = await users.findByIdAndUpdate({ _id },{$set: { name: update.name,email: update.email}});
+        const { _id,name,email } = req.body;
+        console.log(name);
+        console.log(_id)
+        const data = await users.findByIdAndUpdate({ _id },{$set: { name:name,email:email}});
+        console.log(data)
         res.status(200).send(data)
     } catch(err) {
         console.error(err.message);
@@ -26,6 +29,9 @@ app.patch('/public/v2/users/update', async (req, res) => {
             error: 'Something went wrong'
         })
     }
+})
+app.get('*/',(req, res) =>{
+    res.sendFile(__dirname + '/build/index.html')
 })
 
 
